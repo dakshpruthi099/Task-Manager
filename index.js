@@ -3,7 +3,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const mongoose = require('mongoose');
-const taskRoutes = require('./tasks');
+const taskRoutes = require('./routes/tasks');
 
 require('dotenv').config();
 
