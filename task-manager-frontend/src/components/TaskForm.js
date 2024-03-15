@@ -1,7 +1,5 @@
-// task-manager-frontend/src/components/TaskForm.js
 import React, { useState, useEffect } from 'react';
-import { Box, Button, TextField, MenuItem } from '@mui/material';
-import './TaskForm.css'; // Ensure you import the CSS file
+import { Box, Button, TextField, MenuItem, FormControl } from '@mui/material';
 
 const TaskForm = ({ onTaskSubmit, editingTask }) => {
   const [task, setTask] = useState({
@@ -10,17 +8,19 @@ const TaskForm = ({ onTaskSubmit, editingTask }) => {
     status: 'To Do',
   });
 
+  // When the editingTask changes, update the form state
   useEffect(() => {
     if (editingTask) {
       setTask(editingTask);
     } else {
+      // Reset the form when there's no task to edit
       setTask({ title: '', description: '', status: 'To Do' });
     }
   }, [editingTask]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setTask(prevTask => ({
+    setTask((prevTask) => ({
       ...prevTask,
       [name]: value,
     }));
@@ -29,61 +29,55 @@ const TaskForm = ({ onTaskSubmit, editingTask }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     onTaskSubmit(task);
+    // After submission, reset the form only if not editing
     if (!editingTask) {
       setTask({ title: '', description: '', status: 'To Do' });
     }
   };
 
   return (
-    <Box className="TaskForm" component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+    <form onSubmit={handleSubmit}>
       <TextField
-        margin="normal"
-        required
-        fullWidth
-        id="title"
         label="Title"
         name="title"
-        autoComplete="title"
-        autoFocus
         value={task.title}
         onChange={handleChange}
+        required
+        fullWidth
+        margin="normal"
       />
       <TextField
-        margin="normal"
-        fullWidth
-        name="description"
         label="Description"
-        type="text"
-        id="description"
-        autoComplete="current-description"
-        multiline
-        rows={4}
+        name="description"
         value={task.description}
         onChange={handleChange}
-      />
-      <TextField
-        select
-        label="Status"
-        value={task.status}
-        onChange={handleChange}
+        multiline
+        rows={4}
         fullWidth
         margin="normal"
-      >
-        {['To Do', 'In Progress', 'Done'].map((option) => (
-          <MenuItem key={option} value={option}>
-            {option}
-          </MenuItem>
-        ))}
-      </TextField>
-      <Button
-        type="submit"
-        fullWidth
-        variant="contained"
-        sx={{ mt: 3, mb: 2 }}
-      >
-        {editingTask ? 'Update Task' : 'Add Task'}
-      </Button>
-    </Box>
+      />
+      <FormControl fullWidth margin="normal">
+        <TextField
+          select
+          label="Status"
+          name="status"
+          value={task.status}
+          onChange={handleChange}
+          required
+        >
+          {['To Do', 'In Progress', 'Done'].map((status) => (
+            <MenuItem key={status} value={status}>
+              {status}
+            </MenuItem>
+          ))}
+        </TextField>
+      </FormControl>
+      <Box mt={2}>
+        <Button type="submit" variant="contained" color="primary">
+          {editingTask ? 'Update' : 'Submit'}
+        </Button>
+      </Box>
+    </form>
   );
 };
 
