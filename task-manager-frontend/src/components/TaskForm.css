@@ -1,22 +1,21 @@
 /* task-manager-frontend/src/components/TaskForm.css */
 .TaskForm {
-    background-color: #EDEDED; /* Light background for form */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-  }
-  
-  .TaskForm .MuiTextField-root {
-    margin: 10px 0;
-  }
-  
-  .TaskForm .MuiButton-root {
-    background-color: #A27B5C; /* Accent color for submit button */
-    color: white;
-  }
-  
-  .TaskForm .MuiButton-root:hover {
-    background-color: #3F4E4F; /* Darker shade for hover state */
-  }
-  
+  background-color: #EDEDED; /* Light background for form */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.TaskForm .MuiTextField-root {
+  margin: 10px 0;
+}
+
+.TaskForm .MuiButton-root {
+  background-color: #A27B5C; /* Accent color for submit button */
+  color: white;
+}
+
+.TaskForm .MuiButton-root:hover {
+  background-color: #3F4E4F; /* Darker shade for hover state */
+}
