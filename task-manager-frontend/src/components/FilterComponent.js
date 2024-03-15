@@ -1,5 +1,7 @@
+// task-manager-frontend/src/components/FilterComponent.js
 import React from 'react';
-import { FormControl, InputLabel, Select, MenuItem, Box } from '@mui/material';
+import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+import './FilterComponent.css'; // Import the CSS file for styling
 
 const FilterComponent = ({ statusFilter, setStatusFilter }) => {
     const handleChange = (event) => {
@@ -7,23 +9,19 @@ const FilterComponent = ({ statusFilter, setStatusFilter }) => {
     };
 
     return (
-        <Box my={2}> {/* Add vertical margins */}
-            <FormControl fullWidth margin="dense"> {/* Adjust this margin if needed */}
-                <InputLabel id="status-filter-label">Status Filter</InputLabel>
-                <Select
-                    labelId="status-filter-label"
-                    id="status-filter"
-                    value={statusFilter}
-                    onChange={handleChange}
-                    label="Status Filter" // This should match the InputLabel's text
-                >
-                    <MenuItem value="All">All</MenuItem>
-                    <MenuItem value="To Do">To Do</MenuItem>
-                    <MenuItem value="In Progress">In Progress</MenuItem>
-                    <MenuItem value="Done">Done</MenuItem>
-                </Select>
-            </FormControl>
-        </Box>
+        <FormControl variant="filled" className="FilterComponent">
+            <InputLabel>Status Filter</InputLabel>
+            <Select
+                value={statusFilter}
+                onChange={handleChange}
+                className="FilterComponent-select"
+            >
+                <MenuItem value="All">All</MenuItem>
+                <MenuItem value="To Do">To Do</MenuItem>
+                <MenuItem value="In Progress">In Progress</MenuItem>
+                <MenuItem value="Done">Done</MenuItem>
+            </Select>
+        </FormControl>
     );
 };
 

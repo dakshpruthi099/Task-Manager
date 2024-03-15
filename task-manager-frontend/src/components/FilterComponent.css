@@ -1,0 +1,27 @@
+/* task-manager-frontend/src/components/FilterComponent.css */
+.FilterComponent {
+    margin: 20px 0;
+    width: 100%;
+  }
+  
+  .FilterComponent-select {
+    background-color: #DCD7C9;
+    color: #3F4E4F;
+  }
+  
+  /* Style the dropdown menu */
+  .MuiSelect-select.MuiSelect-select {
+    padding: 10px;
+    background-color: #DCD7C9;
+  }
+  
+  /* Style the options in the dropdown */
+  .MuiMenuItem-root {
+    color: #3F4E4F;
+  }
+  
+  .MuiMenuItem-root:hover {
+    background-color: #A27B5C;
+    color: white;
+  }
+  

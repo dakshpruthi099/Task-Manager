@@ -1,0 +1,28 @@
+/* task-manager-frontend/src/components/TaskList.css */
+.TaskList {
+    width: 100%;
+  }
+  
+  .TaskList-item {
+    background-color: #EDEDED;
+    color: #3F4E4F;
+  }
+  
+  .TaskList-editButton, .TaskList-deleteButton {
+    margin: 0 5px;
+  }
+  
+  .TaskList-editButton {
+    background-color: #A27B5C;
+    color: white;
+  }
+  
+  .TaskList-deleteButton {
+    background-color: #3F4E4F;
+    color: white;
+  }
+  
+  .TaskList-editButton:hover, .TaskList-deleteButton:hover {
+    opacity: 0.8;
+  }
+  
